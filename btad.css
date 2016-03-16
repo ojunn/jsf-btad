@@ -10,7 +10,7 @@ table {
     height: 20px;
 }
 
-/* �󌱎҈ꗗ */
+/* 受験者一覧 */
 
 #aspnetForm > div:nth-child(9) > table > tbody > tr > td > table:nth-child(2) > tbody > tr > td > table > tbody > tr:nth-child(4) > td > contenttemplate > table > tbody > tr:nth-child(2) > td > div ,#ctl00_ContentPlaceHolder1_UpdatePanel2 > table:nth-child(2) > tbody > tr > td > div ,#aspnetForm > div:nth-child(18) > table > tbody > tr > td > table:nth-child(2) > tbody > tr > td > table > tbody > tr:nth-child(4) > td > contenttemplate > table:nth-child(1) > tbody > tr:nth-child(2) > td > div {
     height: 1000px;
@@ -41,7 +41,7 @@ table {
     border: none;
 }*/
 
-/* �W���b�W�ꗗ */
+/* ジャッジ一覧 */
 
 #ctl00_ContentPlaceHolder1_Panel3 table tr:nth-child(1) ,#ctl00_ContentPlaceHolder1_Panel3 table tr:nth-child(2) ,#ctl00_ContentPlaceHolder1_Panel3 table tr:nth-child(3) ,#ctl00_ContentPlaceHolder1_Panel3 table:nth-child(2) {
     display: none;
@@ -68,7 +68,7 @@ select#ctl00_ContentPlaceHolder1_lstMember {
     overflow: scroll;
 }
 
-/* �e�X�g�ڍ� */
+/* テスト詳細 */
 
 td.style27 textarea#ctl00_ContentPlaceHolder1_txtNote {
     background-color: white;

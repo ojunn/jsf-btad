@@ -9,7 +9,7 @@
 /* jshint -W097 */
 'use strict';
 
-//•w’è‰ğœ
+//å¹…æŒ‡å®šè§£é™¤
 $('table#ctl00_ContentPlaceHolder1_GridView').css('width','')
 
 var previousRank = ''
@@ -17,13 +17,13 @@ $('table#ctl00_ContentPlaceHolder1_GridView tr').each(function(i,e){
     var td = $(e).children('td,th')
     var currentRank = $(td[3]).text()
     
-    //‹‰‚Å•ª‚¯‚é
+    //ç´šã§åˆ†ã‘ã‚‹
     if(previousRank != "" && currentRank != previousRank){
         $('<tr><td colspan='+(td.length)+'></td></tr><tr style="height:4px;background-color:white !important;"><td></td><td></td><td colspan='+(td.length -2)+'></td>').insertBefore($(e))
     }
     if(currentRank == previousRank) $(td[3]).text('')
     
-    //Ú×ƒ{ƒ^ƒ“‚ğ˜A”Ô‚É‚·‚é
+    //è©³ç´°ãƒœã‚¿ãƒ³ã‚’é€£ç•ªã«ã™ã‚‹
     $($(td[2]).children('input')).val(i).css({
         width: '34px',
         height: '30px',
@@ -33,11 +33,11 @@ $('table#ctl00_ContentPlaceHolder1_GridView tr').each(function(i,e){
 //    $(td[0]).remove()
 //    $(td[1]).remove()
 
-    //ÈƒXƒy[ƒX
-    $(td[3]).css('width','30px').text($(td[3]).text().replace(/óŒ±/,""))
-    $(td[4]).css('width','80px')//–¼‘O
-    $(td[5]).css({width:'16px', backgroundColor: $(td[5]).text() == "›" ? 'orange' : 'inherit'}).text($(td[5]).text().replace(/›|”õl/,"”õ"))
-    $(td[6]).text($(td[6]).text().replace(/^\s*$/,"‰¼").replace(//,"-").replace(/“o˜^/,"“o")).css({width:'16px', backgroundColor: $(td[6]).text() == "‰¼" ? 'orange' : 'inherit'})
+    //çœã‚¹ãƒšãƒ¼ã‚¹
+    $(td[3]).css('width','30px').text($(td[3]).text().replace(/å—é¨“/,""))
+    $(td[4]).css('width','80px')//åå‰
+    $(td[5]).css({width:'16px', backgroundColor: $(td[5]).text() == "â—‹" ? 'orange' : 'inherit'}).text($(td[5]).text().replace(/â—‹|å‚™è€ƒ/,"å‚™"))
+    $(td[6]).text($(td[6]).text().replace(/^\s*$/,"ä»®").replace(/â—/,"-").replace(/ç™»éŒ²/,"ç™»")).css({width:'16px', backgroundColor: $(td[6]).text() == "ä»®" ? 'orange' : 'inherit'})
     $(td[9]).text($(td[9]).text().replace(/20([0-9][0-9])/,"'$1"))
     $(td[10]).text($(td[10]).text().replace(/20([0-9][0-9])/,"'$1"))
     $(td[11]).text($(td[11]).text().replace(/20([0-9][0-9])/,"'$1"))

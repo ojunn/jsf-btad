@@ -9,11 +9,11 @@
 /* jshint -W097 */
 'use strict';
 
-//ƒ{ƒ^ƒ“‚ğ‰Ÿ‚·“x‚É•`‰æ‚µ‚È‚¨‚³‚ê‚é‚Ì‚Å–ˆ‰ñ•ÏXˆ—‚ª•K—v
+//ãƒœã‚¿ãƒ³ã‚’æŠ¼ã™åº¦ã«æç”»ã—ãªãŠã•ã‚Œã‚‹ã®ã§æ¯å›å¤‰æ›´å‡¦ç†ãŒå¿…è¦
 function executeSearchOnValueChanged(){
     var timeout_ms = 300
     
-    /* ˆÈ‰º‚ÌCSS‚ğ“K—p‚·‚é‚Æ‰õ“K
+    /* ä»¥ä¸‹ã®CSSã‚’é©ç”¨ã™ã‚‹ã¨å¿«é©
     table {border-collapse: collapse;}
     #ctl00_ContentPlaceHolder1_Panel3 table tr:nth-child(1) ,#ctl00_ContentPlaceHolder1_Panel3 table tr:nth-child(2) ,#ctl00_ContentPlaceHolder1_Panel3 table tr:nth-child(3) ,#ctl00_ContentPlaceHolder1_Panel3 table:nth-child(2) {display: none;}
     #ctl00_ContentPlaceHolder1_Panel3 td.style34 {width: 120px;}
@@ -22,20 +22,20 @@ function executeSearchOnValueChanged(){
     #ctl00_ContentPlaceHolder1_UpdatePanel2 > table > tbody > tr:nth-child(2) > td.style25:first-child {width: 700px;}
     #ctl00_ContentPlaceHolder1_UpdatePanel2 > table > tbody > tr:nth-child(2) > td.style25:first-child > div {height: 500px;overflow: scroll;}
     */
-    //CSS‚ğ“K—p‚µ‚½ê‡‚ÍAhide‚Æcss‚Ì•ª‚Í•s—vBcolspan‚Ærowspan‚Ì•ÏX‚Í•K—v
-    $('#ctl00_ContentPlaceHolder1_Panel3 table tr:nth-child(1)').hide()//“o˜^”Ô†‚ÆŒŸõƒ{ƒ^ƒ“
-    $('#ctl00_ContentPlaceHolder1_Panel3 table tr:nth-child(2), #ctl00_ContentPlaceHolder1_Panel3 table tr:nth-child(3)').hide()//–¼‘OiŠ¿šj
-    //$('#ctl00_ContentPlaceHolder1_Panel3 table tr:nth-child(4), #ctl00_ContentPlaceHolder1_Panel3 table tr:nth-child(5)').hide()//–¼‘Oi‚Ó‚è‚ª‚Èj
+    //CSSã‚’é©ç”¨ã—ãŸå ´åˆã¯ã€hideã¨cssã®åˆ†ã¯ä¸è¦ã€‚colspanã¨rowspanã®å¤‰æ›´ã¯å¿…è¦
+    $('#ctl00_ContentPlaceHolder1_Panel3 table tr:nth-child(1)').hide()//ç™»éŒ²ç•ªå·ã¨æ¤œç´¢ãƒœã‚¿ãƒ³
+    $('#ctl00_ContentPlaceHolder1_Panel3 table tr:nth-child(2), #ctl00_ContentPlaceHolder1_Panel3 table tr:nth-child(3)').hide()//åå‰ï¼ˆæ¼¢å­—ï¼‰
+    //$('#ctl00_ContentPlaceHolder1_Panel3 table tr:nth-child(4), #ctl00_ContentPlaceHolder1_Panel3 table tr:nth-child(5)').hide()//åå‰ï¼ˆãµã‚ŠãŒãªï¼‰
     //$('#ctl00_ContentPlaceHolder1_Panel3 table tr:nth-child(1) td:nth-child(3)').hide().prop('rowspan','3')
     $('#ctl00_ContentPlaceHolder1_Panel3 table tr:nth-child(6) td').prop('colspan','2')
-    $('#ctl00_ContentPlaceHolder1_Panel3 table:nth-child(2)').hide()//’Ç‰Áƒ{ƒ^ƒ“
+    $('#ctl00_ContentPlaceHolder1_Panel3 table:nth-child(2)').hide()//è¿½åŠ ãƒœã‚¿ãƒ³
     $('#ctl00_ContentPlaceHolder1_Panel3 td.style34').css("width", '120px')
     $('#ctl00_ContentPlaceHolder1_Panel3 td.style35').css("width", '80px')
     $('select#ctl00_ContentPlaceHolder1_lstMember').css("height", "440px")
     $('#ctl00_ContentPlaceHolder1_UpdatePanel2 > table > tbody > tr:nth-child(2) > td:first-child').css({width: "700px"})
     $('#ctl00_ContentPlaceHolder1_UpdatePanel2 > table > tbody > tr:nth-child(2) > td:first-child > div').css({overflow: "scroll", height: "500px"})
 
-    //ŒŸõ‚Ì©“®‰»Atabindexw’è
+    //æ¤œç´¢ã®è‡ªå‹•åŒ–ã€tabindexæŒ‡å®š
     $('#ctl00_ContentPlaceHolder1_Panel3 input[type=text]').change(function(e){
         $('input#ctl00_ContentPlaceHolder1_btnSearch').click();
         setTimeout(executeSearchOnValueChanged, timeout_ms)
@@ -45,45 +45,45 @@ function executeSearchOnValueChanged(){
     $('input#ctl00_ContentPlaceHolder1_btnSearch').prop('tabindex', 100)
     $('select#ctl00_ContentPlaceHolder1_lstMember').prop('tabindex', 500)
 
-    //ŒŸõŒ‹‰Ê‚Ì”‚Å“®ì‚ğ•Ï‚¦‚é
-    if( $('select#ctl00_ContentPlaceHolder1_lstMember option').length >= 1){//1–¼ˆÈãƒqƒbƒg
+    //æ¤œç´¢çµæœã®æ•°ã§å‹•ä½œã‚’å¤‰ãˆã‚‹
+    if( $('select#ctl00_ContentPlaceHolder1_lstMember option').length >= 1){//1åä»¥ä¸Šãƒ’ãƒƒãƒˆ
         var s = $('select#ctl00_ContentPlaceHolder1_lstMember')
         if(s.prop('selectedIndex') <0) s.prop('selectedIndex', 0)
         if($('select#ctl00_ContentPlaceHolder1_lstMember option').length ==1){
-            //1–¼ƒqƒbƒg‚µ‚½ê‡‚Í‚»‚Ìl‚ğ’Ç‰Á‚·‚é
+            //1åãƒ’ãƒƒãƒˆã—ãŸå ´åˆã¯ãã®äººã‚’è¿½åŠ ã™ã‚‹
             if($('#ctl00_ContentPlaceHolder1_lblMsg').text().length){
-                //‚½‚¾‚µA‚·‚Å‚É’Ç‰ÁÏ‚İ‚Ìê‡‚Í’Ç‰Á‚¹‚¸‚É“ü—Í—“‚ÉƒtƒH[ƒJƒX‚ğ–ß‚·
+                //ãŸã ã—ã€ã™ã§ã«è¿½åŠ æ¸ˆã¿ã®å ´åˆã¯è¿½åŠ ã›ãšã«å…¥åŠ›æ¬„ã«ãƒ•ã‚©ãƒ¼ã‚«ã‚¹ã‚’æˆ»ã™
                 $('#ctl00_ContentPlaceHolder1_txtSeiKana').focus().select()
             }else{
                 $('input#ctl00_ContentPlaceHolder1_btnAdd').click()
                 setTimeout(executeSearchOnValueChanged, timeout_ms)
             }
         }else{
-            //•¡”ƒqƒbƒg‚Ìê‡‚Íu–¼v‚ÉƒtƒH[ƒJƒX‚·‚é
+            //è¤‡æ•°ãƒ’ãƒƒãƒˆã®å ´åˆã¯ã€Œåã€ã«ãƒ•ã‚©ãƒ¼ã‚«ã‚¹ã™ã‚‹
             //s.focus()
             //$('#ctl00_ContentPlaceHolder1_txtMei').focus()
             $('#ctl00_ContentPlaceHolder1_txtMeiKana').focus()
         }            
     }else{
-        //ŠY“–Ò‚È‚µ‚Ìê‡‚Í“ü—Í—“‚ÉƒtƒH[ƒJƒX‚ğ–ß‚·
+        //è©²å½“è€…ãªã—ã®å ´åˆã¯å…¥åŠ›æ¬„ã«ãƒ•ã‚©ãƒ¼ã‚«ã‚¹ã‚’æˆ»ã™
         //$('#ctl00_ContentPlaceHolder1_txtSei').focus().select()
         $('#ctl00_ContentPlaceHolder1_txtSeiKana').focus().select()
     }
     
-    //–¼‘O‚ÌƒNƒŠƒbƒN‚Å’Ç‰Á‚·‚é
+    //åå‰ã®ã‚¯ãƒªãƒƒã‚¯ã§è¿½åŠ ã™ã‚‹
     $('select#ctl00_ContentPlaceHolder1_lstMember option').click(function(){
         $('input#ctl00_ContentPlaceHolder1_btnAdd').click()
         setTimeout(executeSearchOnValueChanged, timeout_ms)
     })
     
-    //–¼‘O‚Ìƒ_ƒuƒ‹ƒNƒŠƒbƒN‚Å’Ç‰Á‚·‚é
+    //åå‰ã®ãƒ€ãƒ–ãƒ«ã‚¯ãƒªãƒƒã‚¯ã§è¿½åŠ ã™ã‚‹
     $('select#ctl00_ContentPlaceHolder1_lstMember option').dblclick(function(){
         $('input#ctl00_ContentPlaceHolder1_btnAdd').click()
         setTimeout(executeSearchOnValueChanged, timeout_ms)
     })
     
-    //íœƒ{ƒ^ƒ“‚Ì‰Ÿ‰º‚ÅÄ•`‰æ‚³‚ê‚é‚Ì‚Å‘Î‰‚µ‚Ä‚¨‚­
-    $('input[value=íœ], input#ctl00_ContentPlaceHolder1_btnUpdate').click(function(e){
+    //å‰Šé™¤ãƒœã‚¿ãƒ³ã®æŠ¼ä¸‹ã§å†æç”»ã•ã‚Œã‚‹ã®ã§å¯¾å¿œã—ã¦ãŠã
+    $('input[value=å‰Šé™¤], input#ctl00_ContentPlaceHolder1_btnUpdate').click(function(e){
         setTimeout(executeSearchOnValueChanged, timeout_ms)
     })
 }

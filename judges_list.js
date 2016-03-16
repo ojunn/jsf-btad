@@ -14,36 +14,28 @@
 // @version      1.0
 // @match        https://www.skatingjapan.jp/btad/admin_test_judge_reg.aspx
 // @require      https://code.jquery.com/jquery-1.12.0.min.js
-// @grant        none
+// @grant        GM_addStyle
 // ==/UserScript==
 /* jshint -W097 */
 
 'use strict';
 
+//CSS
+GM_addStyle("\
+    table {border-collapse: collapse;}\
+    #ctl00_ContentPlaceHolder1_Panel3 table tr:nth-child(1) ,#ctl00_ContentPlaceHolder1_Panel3 table tr:nth-child(2) ,#ctl00_ContentPlaceHolder1_Panel3 table tr:nth-child(3) ,#ctl00_ContentPlaceHolder1_Panel3 table:nth-child(2) {display: none;}\
+    #ctl00_ContentPlaceHolder1_Panel3 td.style34 {width: 120px;}\
+    #ctl00_ContentPlaceHolder1_Panel3 td.style35 {width: 80px;}\
+    #ctl00_ContentPlaceHolder1_UpdatePanel2 > table > tbody > tr:nth-child(2) > td:first-child {width: 700px;}\
+");
+
 //ボタンを押す度に描画しなおされるので毎回変更処理が必要
 function executeSearchOnValueChanged(){
     var timeout_ms = 300
-    
-    /* 以下のCSSを適用すると快適
-    table {border-collapse: collapse;}
-    #ctl00_ContentPlaceHolder1_Panel3 table tr:nth-child(1) ,#ctl00_ContentPlaceHolder1_Panel3 table tr:nth-child(2) ,#ctl00_ContentPlaceHolder1_Panel3 table tr:nth-child(3) ,#ctl00_ContentPlaceHolder1_Panel3 table:nth-child(2) {display: none;}
-    #ctl00_ContentPlaceHolder1_Panel3 td.style34 {width: 120px;}
-    #ctl00_ContentPlaceHolder1_Panel3 td.style35 {width: 80px;}
-    select#ctl00_ContentPlaceHolder1_lstMember {height: 440px;}
-    #ctl00_ContentPlaceHolder1_UpdatePanel2 > table > tbody > tr:nth-child(2) > td.style25:first-child {width: 700px;}
-    #ctl00_ContentPlaceHolder1_UpdatePanel2 > table > tbody > tr:nth-child(2) > td.style25:first-child > div {height: 500px;overflow: scroll;}
-    */
-    //CSSを適用した場合は、hideとcssの分は不要。colspanとrowspanの変更は必要
-    $('#ctl00_ContentPlaceHolder1_Panel3 table tr:nth-child(1)').hide()//登録番号と検索ボタン
-    $('#ctl00_ContentPlaceHolder1_Panel3 table tr:nth-child(2), #ctl00_ContentPlaceHolder1_Panel3 table tr:nth-child(3)').hide()//名前（漢字）
-    //$('#ctl00_ContentPlaceHolder1_Panel3 table tr:nth-child(4), #ctl00_ContentPlaceHolder1_Panel3 table tr:nth-child(5)').hide()//名前（ふりがな）
-    //$('#ctl00_ContentPlaceHolder1_Panel3 table tr:nth-child(1) td:nth-child(3)').hide().prop('rowspan','3')
+
+    //CSS
     $('#ctl00_ContentPlaceHolder1_Panel3 table tr:nth-child(6) td').prop('colspan','2')
-    $('#ctl00_ContentPlaceHolder1_Panel3 table:nth-child(2)').hide()//追加ボタン
-    $('#ctl00_ContentPlaceHolder1_Panel3 td.style34').css("width", '120px')
-    $('#ctl00_ContentPlaceHolder1_Panel3 td.style35').css("width", '80px')
     $('select#ctl00_ContentPlaceHolder1_lstMember').css("height", "440px")
-    $('#ctl00_ContentPlaceHolder1_UpdatePanel2 > table > tbody > tr:nth-child(2) > td:first-child').css({width: "700px"})
     $('#ctl00_ContentPlaceHolder1_UpdatePanel2 > table > tbody > tr:nth-child(2) > td:first-child > div').css({overflow: "scroll", height: "500px"})
 
     //検索の自動化、tabindex指定

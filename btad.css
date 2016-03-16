@@ -1,0 +1,79 @@
+* {
+    overflow: visible;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+.style19 {
+    height: 20px;
+}
+
+/* 受験者一覧 */
+
+#aspnetForm > div:nth-child(9) > table > tbody > tr > td > table:nth-child(2) > tbody > tr > td > table > tbody > tr:nth-child(4) > td > contenttemplate > table > tbody > tr:nth-child(2) > td > div ,#ctl00_ContentPlaceHolder1_UpdatePanel2 > table:nth-child(2) > tbody > tr > td > div ,#aspnetForm > div:nth-child(18) > table > tbody > tr > td > table:nth-child(2) > tbody > tr > td > table > tbody > tr:nth-child(4) > td > contenttemplate > table:nth-child(1) > tbody > tr:nth-child(2) > td > div {
+    height: 1000px;
+    overflow-y: scroll;
+}
+
+#ctl00_ContentPlaceHolder1_UpdatePanel2 tr:nth-child(2n) {
+    background-color: #eee ;
+}
+
+#ctl00_ContentPlaceHolder1_UpdatePanel2 > div > table#ctl00_ContentPlaceHolder1_GridView tr th:nth-child(1) ,#ctl00_ContentPlaceHolder1_UpdatePanel2 > div > table#ctl00_ContentPlaceHolder1_GridView tr th:nth-child(2) ,#ctl00_ContentPlaceHolder1_UpdatePanel2 > div > table#ctl00_ContentPlaceHolder1_GridView tr td:nth-child(1) ,#ctl00_ContentPlaceHolder1_UpdatePanel2 > div > table#ctl00_ContentPlaceHolder1_GridView tr td:nth-child(2) {
+    display: none;
+}
+
+/*
+.style22 div {
+    width: 1000px !important;
+    overflow: visible !important;
+    height: 900px;
+}
+#ctl00_ContentPlaceHolder1_txtNote {
+    width: 660px !important;
+    height: 240px !important;
+}*/
+
+/*
+#ctl00_ContentPlaceHolder1_UpdatePanel2 tr td {
+    border: none;
+}*/
+
+/* ジャッジ一覧 */
+
+#ctl00_ContentPlaceHolder1_Panel3 table tr:nth-child(1) ,#ctl00_ContentPlaceHolder1_Panel3 table tr:nth-child(2) ,#ctl00_ContentPlaceHolder1_Panel3 table tr:nth-child(3) ,#ctl00_ContentPlaceHolder1_Panel3 table:nth-child(2) {
+    display: none;
+}
+
+#ctl00_ContentPlaceHolder1_Panel3 td.style34 {
+    width: 120px;
+}
+
+#ctl00_ContentPlaceHolder1_Panel3 td.style35 {
+    width: 80px;
+}
+
+select#ctl00_ContentPlaceHolder1_lstMember {
+    height: 440px;
+}
+
+#ctl00_ContentPlaceHolder1_UpdatePanel2 > table > tbody > tr:nth-child(2) > td.style25:first-child {
+    width: 700px;
+}
+
+#ctl00_ContentPlaceHolder1_UpdatePanel2 > table > tbody > tr:nth-child(2) > td.style25:first-child > div {
+    height: 500px;
+    overflow: scroll;
+}
+
+/* テスト詳細 */
+
+td.style27 textarea#ctl00_ContentPlaceHolder1_txtNote {
+    background-color: white;
+    height: 300px;
+    line-height: 1.3;
+    width: 600px;
+}
+

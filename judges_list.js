@@ -1,12 +1,23 @@
+/*
+ * Copyright (c) 2016 ojunn
+ * https://raw.githubusercontent.com/ojunn/jsf-btad/master/judges_list.js
+ * 
+ * This file is distributed under MIT License.
+ * See LICENSE for more information.
+ */
 // ==UserScript==
 // @name         JSF btad Judges List
-// @namespace    http://tampermonkey.net/
+// @author       ojunn
+// @namespace    http://ojunn.github.io/jsf-btad/
+// @updateURL    https://raw.githubusercontent.com/ojunn/jsf-btad/master/judges_list.js
+// @downloadURL  https://raw.githubusercontent.com/ojunn/jsf-btad/master/judges_list.js
 // @version      1.0
 // @match        https://www.skatingjapan.jp/btad/admin_test_judge_reg.aspx
 // @require      https://code.jquery.com/jquery-1.12.0.min.js
 // @grant        none
 // ==/UserScript==
 /* jshint -W097 */
+
 'use strict';
 
 //ボタンを押す度に描画しなおされるので毎回変更処理が必要

@@ -15,6 +15,7 @@
 // @match        https://www.skatingjapan.jp/btad/admin_test_entry_list.aspx
 // @require      https://code.jquery.com/jquery-1.12.0.min.js
 // @grant        GM_addStyle
+// @noframes
 // ==/UserScript==
 /* jshint -W097 */
 
@@ -32,6 +33,7 @@ GM_addStyle("\
 $('table#ctl00_ContentPlaceHolder1_GridView').css('width','')
 
 var previousRank = ''
+var bikouQueue = [];
 $('table#ctl00_ContentPlaceHolder1_GridView tr').each(function(i,e){
     var td = $(e).children('td,th')
     var currentRank = $(td[3]).text()
@@ -55,13 +57,29 @@ $('table#ctl00_ContentPlaceHolder1_GridView tr').each(function(i,e){
     //省スペース、強調
     $(td[3]).css('width','30px').text($(td[3]).text().replace(/受験/,""))
     $(td[4]).css('width','80px')//名前
-    $(td[5]).css({width:'16px', backgroundColor: $(td[5]).text() == "○" ? 'orange' : 'inherit'}).text($(td[5]).text().replace(/○|備考/,"備"))//備考
+    $(td[5]).css({width:'16px', backgroundColor: $(td[5]).text() == "○" ? 'yellow' : 'inherit'}).text($(td[5]).text().replace(/○|備考/,"備"))//備考
     $(td[6]).text($(td[6]).text().replace(/^\s*$/,"仮").replace(/◎/,"-").replace(/登録/,"登")).css({width:'16px', backgroundColor: $(td[6]).text() == "仮" ? 'orange' : 'inherit'})//登録
     $(td[9]).text($(td[9]).text().replace(/20([0-9][0-9])/,"'$1"))
     $(td[10]).text($(td[10]).text().replace(/20([0-9][0-9])/,"'$1"))
     $(td[11]).text($(td[11]).text().replace(/20([0-9][0-9])/,"'$1"))
     $(td[12]).css('width','240px')
     if(!$(this).text().match(/受験/)){$(this).css({color: 'gray'})}//キャンセル
+
+    if(i>0 && $(td[5]).text()=="備"){
+        bikouQueue.push({cell: $(td[5]), number: i, onloadiframe: function(){
+            if(this.contentWindow.location.href.match(/admin_test_entry_list.aspx/)){
+                $('#ctl00_ContentPlaceHolder1_GridView tr:nth-child('+(i+1)+') td:nth-child(3) input', this.contentWindow.document).click()
+            }
+            if(this.contentWindow.location.href.match(/admin_test_entry_edit.aspx/)){
+                $(td[5]).prop('title', $('#ctl00_ContentPlaceHolder1_txtNote1', this.contentWindow.document).val()).css({backgroundColor: 'orange'});
+            }
+        }});
+    }
+    
     previousRank = currentRank
 })
+
+for(var i=0; i<bikouQueue.length; i++){
+    $('<iframe id="'+"detail_frame_"+bikouQueue[i].number+'" style="width:1px;height:1px;visibility:hidden;"></iframe>').appendTo($('body')).load(bikouQueue[i].onloadiframe).prop('src', window.location.href);
+}
 

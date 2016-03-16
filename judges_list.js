@@ -23,11 +23,14 @@
 //CSS
 GM_addStyle("\
     table {border-collapse: collapse;}\
-    #ctl00_ContentPlaceHolder1_Panel3 table {margin: 0;}\
+    #ctl00_ContentPlaceHolder1_Panel3 table {margin: 0; width: 100% !important;}\
     #ctl00_ContentPlaceHolder1_Panel3 table tr:nth-child(1) ,#ctl00_ContentPlaceHolder1_Panel3 table tr:nth-child(2) ,#ctl00_ContentPlaceHolder1_Panel3 table tr:nth-child(3) ,#ctl00_ContentPlaceHolder1_Panel3 table:nth-child(2) {display: none;}\
     #ctl00_ContentPlaceHolder1_Panel3 td.style34 {width: 120px;}\
     #ctl00_ContentPlaceHolder1_Panel3 td.style35 {width: 80px;}\
     #ctl00_ContentPlaceHolder1_UpdatePanel2 > table > tbody > tr:nth-child(2) > td:first-child {width: 700px;}\
+    select#ctl00_ContentPlaceHolder1_lstMember {height: 440px !important; width:215px !important;}\
+    #ctl00_ContentPlaceHolder1_UpdatePanel2 > table > tbody > tr:nth-child(2) > td:first-child > div {overflow: scroll; height: 500px !important;}\
+    input#ctl00_ContentPlaceHolder1_txtSeiKana, input#ctl00_ContentPlaceHolder1_txtMeiKana {width:124px !important;}\
 ");
 
 //ボタンを押す度に描画しなおされるので毎回変更処理が必要
@@ -36,11 +39,8 @@ function executeSearchOnValueChanged(){
 
     //CSS
     $('#ctl00_ContentPlaceHolder1_Panel3').css('height', '');
-    $('#ctl00_ContentPlaceHolder1_Panel3 table').css({height: '', width: '100%'});
+    $('#ctl00_ContentPlaceHolder1_Panel3 table').css({height: ''});
     $('#ctl00_ContentPlaceHolder1_Panel3 table tr:nth-child(6) td').prop('colspan','2')
-    $('select#ctl00_ContentPlaceHolder1_lstMember').css({height: "440px", width:'215px'})
-    $('#ctl00_ContentPlaceHolder1_UpdatePanel2 > table > tbody > tr:nth-child(2) > td:first-child > div').css({overflow: "scroll", height: "500px"})
-    $('input#ctl00_ContentPlaceHolder1_txtSeiKana, input#ctl00_ContentPlaceHolder1_txtMeiKana').css('width', '124px');
 
     //検索の自動化、tabindex指定
     $('#ctl00_ContentPlaceHolder1_Panel3 input[type=text]').change(function(e){

@@ -1,0 +1,112 @@
+@page { size: A4 landscape }
+
+section.padding-5mm { padding: 5mm; }
+
+h1 {
+	width: 8cm;
+	margin: 0 auto 2mm;
+	text-align: center;
+	font-size:5mm;
+	font-weight: bold;
+}
+
+/*
+table, tr, th, td{
+border: 0.2px solid gray;
+}
+*/
+
+/*
+ * .basic_information
+ */
+
+table.basic_information {
+	margin: 0 auto 2mm;
+	font-size: 3.5mm;
+}
+table.basic_information tr {
+	border-bottom: 1px solid black;
+}
+table.basic_information th, table.basic_information td {
+	padding: 1mm 1mm 0.5mm;
+}
+table.basic_information th {
+	width: 20mm;
+	text-align: justify;
+}
+table.basic_information td {
+	width: 35mm;
+}
+table.basic_information td.date {
+	text-align: right;
+}
+table.basic_information td.date span {
+	display: inline-block;
+	width: 6mm;
+	text-align: right;
+}
+
+
+/*
+ * .marking_sheet
+ */
+
+table.marking_sheet {
+	width: 100%;
+	margin: 0;
+}
+
+table.marking_sheet colgroup.number {width:  4mm;}
+table.marking_sheet colgroup.name   {width: 30mm;}
+table.marking_sheet colgroup.item   {/*width: 12mm;*/ }
+table.marking_sheet colgroup.result {width:  4mm;}
+
+
+/* thead */
+table.marking_sheet thead{
+	font-weight: bold;
+}
+table.marking_sheet thead th{
+	padding: 0.5mm;
+	font-size: 4mm;
+}
+
+table.marking_sheet thead tr.caption {
+	vertical-align: bottom;
+}
+table.marking_sheet thead tr.caption th{
+	border-style: none !important;
+}
+table.marking_sheet thead th.category,
+table.marking_sheet thead th.grade {
+	text-align: left;
+	padding-bottom: 1mm;
+}
+table.marking_sheet thead th.grade {
+	text-decoration: underline;
+	font-size: 6mm;
+}
+table.marking_sheet thead tr.title th{
+	border: 1px solid black;
+	/*font-weight: normal;*/
+}
+
+/* tbody */
+table.marking_sheet tbody th,
+table.marking_sheet tbody td {
+	border: 1px solid black;
+}
+table.marking_sheet tbody td {
+	height: 20mm;
+}
+
+table.marking_sheet thead tr.title th:nth-child(3),
+table.marking_sheet thead tr.title th:nth-child(9),
+table.marking_sheet tbody td:nth-child(3),
+table.marking_sheet tbody td:nth-child(9) {
+	border-left: 3px double black;
+}
+
+
+
+

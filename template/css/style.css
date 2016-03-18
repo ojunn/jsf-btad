@@ -2,6 +2,14 @@
 
 section.padding-5mm { padding: 5mm; }
 
+/* 確認用 */
+/*
+table, tr, th, td{ border: 0.2px solid gray; }
+*/
+
+/*
+ * 共通のヘッダー部
+ */
 h1 {
 	width: 8cm;
 	margin: 0 auto 2mm;
@@ -10,15 +18,17 @@ h1 {
 	font-weight: bold;
 }
 
-/*
-table, tr, th, td{
-border: 0.2px solid gray;
+h2 {
+	position: absolute;
+	top: 5mm;
+	left: 5mm;
+	margin: 0;
+	border: 1px solid black;
+	padding: 1mm;
+	font-size: 10mm;
 }
-*/
 
-/*
- * .basic_information
- */
+/* .basic_information */
 
 table.basic_information {
 	margin: 0 auto 2mm;
@@ -47,6 +57,25 @@ table.basic_information td.date span {
 }
 
 
+/* 
+ * ページ番号
+ */
+/*
+body {
+  counter-reset: sheet;
+}
+.sheet::after {
+  position: absolute;
+  bottom: 0;
+  width: 10mm;
+  margin: 0 auto;
+  counter-increment: sheet;
+  content: counter(sheet);
+}
+*/
+
+
+
 /*
  * .marking_sheet
  */
@@ -55,12 +84,6 @@ table.marking_sheet {
 	width: 100%;
 	margin: 0;
 }
-
-table.marking_sheet colgroup.number {width:  4mm;}
-table.marking_sheet colgroup.name   {width: 30mm;}
-table.marking_sheet colgroup.item   {/*width: 12mm;*/ }
-table.marking_sheet colgroup.result {width:  4mm;}
-
 
 /* thead */
 table.marking_sheet thead{
@@ -77,18 +100,23 @@ table.marking_sheet thead tr.caption {
 table.marking_sheet thead tr.caption th{
 	border-style: none !important;
 }
-table.marking_sheet thead th.category,
-table.marking_sheet thead th.grade {
+table.marking_sheet thead th.category {
 	text-align: left;
 	padding-bottom: 1mm;
 }
-table.marking_sheet thead th.grade {
-	text-decoration: underline;
-	font-size: 6mm;
-}
 table.marking_sheet thead tr.title th{
 	border: 1px solid black;
-	/*font-weight: normal;*/
+	font-weight: normal;
+}
+table.marking_sheet thead tr.title th.number,
+table.marking_sheet thead tr.title th.name,
+table.marking_sheet thead tr.title th.choice,
+table.marking_sheet thead tr.title th.result {
+	font-weight: bold;
+}
+table.marking_sheet thead tr.title th strong{
+	text-decoration: underline;
+	font-weight: bold;
 }
 
 /* tbody */
@@ -100,13 +128,66 @@ table.marking_sheet tbody td {
 	height: 20mm;
 }
 
-table.marking_sheet thead tr.title th:nth-child(3),
-table.marking_sheet thead tr.title th:nth-child(9),
-table.marking_sheet tbody td:nth-child(3),
-table.marking_sheet tbody td:nth-child(9) {
-	border-left: 3px double black;
+.element table.marking_sheet thead tr.title th:nth-child(2),
+.element table.marking_sheet tbody td:nth-child(2) {
+	border-right: 3px double black;
 }
 
+table.marking_sheet colgroup.number {width:  4mm;}
+/*table.marking_sheet colgroup.name   {width: 30mm;}*/
+table.marking_sheet colgroup.item   {width: 30mm; }
+table.marking_sheet colgroup.result {width:  4mm;}
 
+.grade-0 table.marking_sheet colgroup.jump   {width: 35mm; }
+.grade-0 table.marking_sheet colgroup.step   {width: 50mm; }
+.grade-0 table.marking_sheet thead tr.title th:nth-child(9), .grade-0 table.marking_sheet tbody td:nth-child(9) { border-left: 3px double black; }
 
+.grade-1 table.marking_sheet colgroup.item   {width: 31mm; }
+.grade-1 table.marking_sheet colgroup.jump   {width: 20mm; }
+.grade-1 table.marking_sheet thead tr.title th:nth-child(8),  .grade-1 table.marking_sheet tbody td:nth-child(8)  { border-left: 3px double black; border-right: 3px double black; }
+.grade-1 table.marking_sheet thead tr.title th:nth-child(13), .grade-1 table.marking_sheet tbody td:nth-child(13) { border-left: 3px double black; }
 
+.grade-2es table.marking_sheet colgroup.item   {width: 28mm; }
+.grade-2es table.marking_sheet colgroup.jump   {width: 16mm; }
+.grade-2es table.marking_sheet colgroup.choice   {width: 4mm; }
+.grade-2es table.marking_sheet thead tr.title th:nth-child(9),  .grade-2es table.marking_sheet tbody td:nth-child(9)  { border-left: 3px double black; border-right: 3px double black;}
+.grade-2es table.marking_sheet thead tr.title th:nth-child(15), .grade-2es table.marking_sheet tbody td:nth-child(15) { border-left: 3px double black;}
+
+.grade-3es table.marking_sheet colgroup.item   {width: 25mm; }
+.grade-3es table.marking_sheet colgroup.jump   {width: 18mm; }
+.grade-3es table.marking_sheet colgroup.choice   {width: 4mm; }
+.grade-3es table.marking_sheet thead tr.title th:nth-child(9),  .grade-3es table.marking_sheet tbody td:nth-child(9)  { border-left: 3px double black; border-right: 3px double black;}
+.grade-3es table.marking_sheet thead tr.title th:nth-child(15), .grade-3es table.marking_sheet tbody td:nth-child(15) { border-left: 3px double black;}
+
+/*
+ * フリースケーティング
+ */
+table.reguration {
+	margin: 2mm 0;
+	width: 100%;
+}
+table.reguration th, table.reguration td {
+	border: 1px solid black;
+	padding: 1mm;
+	vertical-align: top;
+	text-align: left;
+}
+table.reguration ol {
+	margin: 0;
+	padding-left: 8mm;
+}
+
+.freeskating table.marking_sheet tbody td { height: 15mm; }
+.freeskating table.marking_sheet tbody tr.goe td { height: 8mm; }
+.freeskating table.marking_sheet tbody tr.goe td:nth-child(1) { text-align: right; }
+.freeskating table.marking_sheet thead tr.title-1 th:nth-child(2),
+.freeskating table.marking_sheet tbody tr.element td:nth-child(2),
+.freeskating table.marking_sheet tbody tr.goe td:nth-child(1) { border-right: 3px double black;}
+.freeskating table.marking_sheet thead tr.title-1 th:nth-child(9),
+.freeskating table.marking_sheet tbody tr.element td:nth-child(14) { border-left: 3px double black;}
+
+.grade-2fs table.marking_sheet colgroup.item   {width: 28mm; }
+.grade-2fs table.marking_sheet colgroup.jump   {width: 20mm; }
+.grade-2fs table.marking_sheet colgroup.jump-combo   {width: 35mm; }
+.grade-2fs table.marking_sheet colgroup.pcs   {width: 20mm; }
+.grade-2fs table.marking_sheet colgroup.pcs-average   {width: 16mm; }

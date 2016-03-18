@@ -1,6 +1,6 @@
 @page { size: A4 landscape }
 
-section.padding-5mm { padding: 5mm; }
+section.sheet { padding: 5mm; }
 
 /* 確認用 */
 /*

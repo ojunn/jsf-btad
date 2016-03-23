@@ -183,11 +183,26 @@ table.reguration ol {
 .freeskating table.marking_sheet thead tr.title-1 th:nth-child(2),
 .freeskating table.marking_sheet tbody tr.element td:nth-child(2),
 .freeskating table.marking_sheet tbody tr.goe td:nth-child(1) { border-right: 3px double black;}
-.freeskating table.marking_sheet thead tr.title-1 th:nth-child(9),
-.freeskating table.marking_sheet tbody tr.element td:nth-child(14) { border-left: 3px double black;}
 
+.grade-2fs table.marking_sheet thead tr.title-1 th:nth-child(7),
+.grade-2fs table.marking_sheet thead tr.title-2 th:nth-child(2),
+.grade-2fs table.marking_sheet tbody tr.element td:nth-child(10),
+.grade-2fs table.marking_sheet tbody tr.goe     td:nth-child(9),
+.grade-2fs table.marking_sheet thead tr.title-1 th:nth-child(9),
+.grade-2fs table.marking_sheet tbody tr.element td:nth-child(14) { border-left: 3px double black;}
 .grade-2fs table.marking_sheet colgroup.item   {width: 28mm; }
 .grade-2fs table.marking_sheet colgroup.jump   {width: 20mm; }
 .grade-2fs table.marking_sheet colgroup.jump-combo   {width: 35mm; }
 .grade-2fs table.marking_sheet colgroup.pcs   {width: 20mm; }
 .grade-2fs table.marking_sheet colgroup.pcs-average   {width: 16mm; }
+
+.grade-3fs table.marking_sheet thead tr.title-1 th:nth-child(6),
+.grade-3fs table.marking_sheet thead tr.title-2 th:nth-child(5),
+.grade-3fs table.marking_sheet tbody tr.element td:nth-child(12),
+.grade-3fs table.marking_sheet tbody tr.goe     td:nth-child(11),
+.grade-3fs table.marking_sheet thead tr.title-1 th:nth-child(8),
+.grade-3fs table.marking_sheet tbody tr.element td:nth-child(16) { border-left: 3px double black;}
+.grade-3fs table.marking_sheet colgroup.item   {width: 20mm; }
+.grade-3fs table.marking_sheet colgroup.jump   {width: 20mm; }
+.grade-3fs table.marking_sheet colgroup.pcs   {width: 20mm; }
+.grade-3fs table.marking_sheet colgroup.pcs-average   {width: 16mm; }

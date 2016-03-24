@@ -143,7 +143,7 @@ if(isSingleTest && !isSpecialTest){
         url: 'https://uunf.o.mize.jp/jsf-btad/template/0_.html',
         success: function(data){
             $('#button_for_marking_sheets').click(function(){
-                var print = window.open('', "popupWindow", "width=1155,height=830,scrollbars=no");
+                var print = window.open('', "popupWindow", "width=1160,height=830,scrollbars=no");
                 print.document.write(data)
                 console.log(year)
                 $('.basic_information .host', print.document).text(host)
@@ -167,7 +167,7 @@ if(isSingleTest && !isSpecialTest){
 if(isSingleTest){
     if(isSpecialTest){
         $('#button_for_list').click(function(){
-            var print = window.open('', "popupWindow", "width=1155,height=830,scrollbars=no");
+            var print = window.open('', "popupWindow", "width=832,height=650,scrollbars=no");
             print.document.write('<html><body><table><tr><td>&nbsp;</td><th>7級</th><th>8級</th></tr><tr><th>要素</th><td id="es-7"></td><td id="es-8"></td></tr><tr><th>SP</th><td id="sp-7"></td><td id="sp-8"></td></tr><tr><th>FS</th><td id="fs-7"></td><td id="fs-8"></td></tr></body></html>')
             var template = '<textarea style="width:8em; height: 15em; display:inline-block;"></textarea>';
             $(es).each(function(i,val){
@@ -190,7 +190,7 @@ if(isSingleTest){
         })
     }else{
         $('#button_for_list').click(function(){
-            var print = window.open('', "popupWindow", "width=1155,height=830,scrollbars=no");
+            var print = window.open('', "popupWindow", "width=832,height=650,scrollbars=no");
             print.document.write('<html><body><table><tr><td>&nbsp;</td><th>初級</th><th>1級</th><th>2級</th><th>3級</th><th>4級</th><th>5級</th><th>6級</th></tr><tr><th>要素</th><td id="es-0"></td><td id="es-1"></td><td id="es-2"></td><td id="es-3"></td><td id="es-4"></td><td id="es-5"></td><td id="es-6"></td></tr><tr><th>SP</th><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td id="sp-6"></td></tr><tr><th>FS</th><td>&nbsp;</td><td>&nbsp;</td><td id="fs-2"></td><td id="fs-3"></td><td id="fs-4"></td><td id="fs-5"></td><td id="fs-6"></td></tr></body></html>')
             var template = '<textarea style="width:8em; height: 15em; display:inline-block;"></textarea>';
             $(es).each(function(i,val){

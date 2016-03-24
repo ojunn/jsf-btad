@@ -128,7 +128,7 @@ table.marking_sheet tbody td {
 	height: 20mm;
 }
 
-.element table.marking_sheet thead tr.title th:nth-child(2),
+.element table.marking_sheet thead tr.title-1 th:nth-child(2),
 .element table.marking_sheet tbody td:nth-child(2) {
 	border-right: 3px double black;
 }
@@ -162,6 +162,14 @@ table.marking_sheet colgroup.choice   {width: 4mm; }
 .grade-4es table.marking_sheet colgroup.jump   {width: 18mm; }
 .grade-4es table.marking_sheet thead tr.title th:nth-child(9),  .grade-4es table.marking_sheet tbody td:nth-child(9)  { border-left: 3px double black; border-right: 3px double black;}
 .grade-4es table.marking_sheet thead tr.title th:nth-child(15), .grade-4es table.marking_sheet tbody td:nth-child(15) { border-left: 3px double black;}
+
+.grade-5es table.marking_sheet colgroup.item   {width: 26mm; }
+.grade-5es table.marking_sheet colgroup.jump   {width: 22mm; }
+.grade-5es table.marking_sheet thead tr.title th:nth-child(9),  .grade-5es table.marking_sheet tbody td:nth-child(9)  { border-left: 3px double black; border-right: 3px double black;}
+.grade-5es table.marking_sheet thead tr.title th:nth-child(14), .grade-5es table.marking_sheet tbody td:nth-child(14) { border-left: 3px double black;}
+
+.grade-6es table.marking_sheet colgroup.item   {width: 40mm; }
+.grade-6es table.marking_sheet thead tr.title th:nth-child(9),  .grade-6es table.marking_sheet tbody td:nth-child(9)  { border-left: 3px double black; border-right: 3px double black;}
 
 /*
  * フリースケーティング

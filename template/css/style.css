@@ -170,6 +170,18 @@ table.marking_sheet colgroup.choice   {width: 4mm; }
 
 .grade-6es table.marking_sheet colgroup.item   {width: 40mm; }
 .grade-6es table.marking_sheet thead tr.title th:nth-child(9),  .grade-6es table.marking_sheet tbody td:nth-child(9)  { border-left: 3px double black; border-right: 3px double black;}
+.grade-6es table.marking_sheet tbody td { height: 26mm; }
+
+.grade-7es table.marking_sheet colgroup.item   {width: 46mm; }
+.grade-7es table.marking_sheet colgroup.jump   {width: 35mm; }
+.grade-7es table.marking_sheet thead tr.title th:nth-child(9),  .grade-7es table.marking_sheet tbody td:nth-child(9)  { border-left: 3px double black; }
+.grade-7es table.marking_sheet tbody td { height: 30mm; }
+
+.grade-8es table.marking_sheet colgroup.item   {width: 40mm; }
+.grade-8es table.marking_sheet colgroup.jump   {width: 20mm; }
+.grade-8es table.marking_sheet colgroup.spin-flying   {width: 20mm; }
+.grade-8es table.marking_sheet thead tr.title th:nth-child(8),  .grade-8es table.marking_sheet tbody td:nth-child(13)  { border-left: 3px double black; }
+.grade-8es table.marking_sheet tbody td { height: 38mm; }
 
 /*
  * フリースケーティング

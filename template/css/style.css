@@ -242,4 +242,16 @@ table.reguration ol {
 .grade-4fs table.marking_sheet colgroup.jump   {width: 20mm; }
 .grade-4fs table.marking_sheet colgroup.pcs   {width: 20mm; }
 .grade-4fs table.marking_sheet colgroup.pcs-average   {width: 16mm; }
-.grade-4fs table.marking_sheet tbody td { height: 18mm; }
+.grade-4fs table.marking_sheet tbody td { height: 19mm; }
+
+.grade-5fs table.marking_sheet thead tr.title-1 th:nth-child(6),
+.grade-5fs table.marking_sheet thead tr.title-2 th:nth-child(6),
+.grade-5fs table.marking_sheet tbody tr.element td:nth-child(14),
+.grade-5fs table.marking_sheet tbody tr.goe     td:nth-child(13),
+.grade-5fs table.marking_sheet thead tr.title-1 th:nth-child(8),
+.grade-5fs table.marking_sheet tbody tr.element td:nth-child(20) { border-left: 3px double black;}
+.grade-5fs table.marking_sheet colgroup.item   {width: 14mm; }
+.grade-5fs table.marking_sheet colgroup.jump   {width: 14mm; }
+.grade-5fs table.marking_sheet colgroup.pcs   {width: 14mm; }
+.grade-5fs table.marking_sheet colgroup.pcs-average   {width: 16mm; }
+.grade-5fs table.marking_sheet tbody td { height: 20mm; }

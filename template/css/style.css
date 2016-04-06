@@ -255,3 +255,25 @@ table.reguration ol {
 .grade-5fs table.marking_sheet colgroup.pcs   {width: 14mm; }
 .grade-5fs table.marking_sheet colgroup.pcs-average   {width: 16mm; }
 .grade-5fs table.marking_sheet tbody td { height: 20mm; }
+
+
+.short-program table.marking_sheet tbody td { height: 15mm; }
+.short-program table.marking_sheet tbody tr.goe td { height: 8mm; }
+.short-program table.marking_sheet tbody tr.goe td:nth-child(1) { text-align: right; }
+.short-program table.marking_sheet thead tr.title-1 th:nth-child(2),
+.short-program table.marking_sheet tbody tr.element td:nth-child(2),
+.short-program table.marking_sheet tbody tr.goe td:nth-child(1) { border-right: 3px double black;}
+
+.grade-6sp table.marking_sheet thead tr.title-1 th:nth-child(6),
+.grade-6sp table.marking_sheet thead tr.title-2 th:nth-child(8),
+.grade-6sp table.marking_sheet tbody tr.element td:nth-child(10),
+.grade-6sp table.marking_sheet tbody tr.goe     td:nth-child(9),
+.grade-6sp table.marking_sheet thead tr.title-1 th:nth-child(8),
+.grade-6sp table.marking_sheet tbody tr.element td:nth-child(16) { border-left: 3px double black;}
+.grade-6sp table.marking_sheet colgroup.item   {width: 20mm; }
+.grade-6sp table.marking_sheet colgroup.jump   {width: 24mm; }
+.grade-6sp table.marking_sheet colgroup.jump-combo   {width: 24mm; }
+.grade-6sp table.marking_sheet colgroup.pcs   {width: 16mm; }
+.grade-6sp table.marking_sheet colgroup.pcs-average   {width: 14mm; }
+.grade-6sp table.marking_sheet tbody td { height: 20mm; }
+

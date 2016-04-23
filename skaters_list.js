@@ -151,11 +151,12 @@ if(isSingleTest && !isSpecialTest){
                 $('.basic_information .date .day', print.document).text(day)
                 
                 for(var i=0;i<9;i++){
+                	var className = "grade-"+i+( i > 1 ? "es" : "" );
                     if(es[i].length <1){
-                        $("section.grade-"+i).hide();
+                        $("section."+className).hide();
                     }else{
                         $(es[i]).each(function(j,val){
-                            var raw = $("section.grade-"+i+" table.marking_sheet tbody tr:nth-child("+(j+1)+")", print.document);
+                            var raw = $("section."+className+" table.marking_sheet tbody tr:nth-child("+(j+1)+")", print.document);
                             $("th", raw)[0].innerHTML = j+1
                             $("td", raw)[0].innerHTML = val
                         })
@@ -179,18 +180,24 @@ if(isSingleTest){
             $(es).each(function(i,val){
                 if(i>6 && val.length >0){
                     $(template).html(val.join("\n")).appendTo($('body td#es-'+i, print.document)).focus(function(){this.select()})
+                }else{
+                    $(template).html("").appendTo($('body td#es-'+i, print.document))
                 }
             })
             $('<br>').appendTo($('body', print.document))
             $(sp).each(function(i,val){
                 if(i>6 && val.length >0){
                     $(template).html(val.join("\n")).appendTo($('body td#sp-'+i, print.document)).focus(function(){this.select()})
+                }else{
+                    $(template).html("").appendTo($('body td#sp-'+i, print.document))
                 }
             })
             $('<br>').appendTo($('body', print.document))
             $(fs).each(function(i,val){
                 if(i>6 && val.length >0){
                     $(template).html(val.join("\n")).appendTo($('body td#fs-'+i, print.document)).focus(function(){this.select()})
+                }else{
+                    $(template).html("").appendTo($('body td#fs-'+i, print.document))
                 }
             })
         })
@@ -202,18 +209,24 @@ if(isSingleTest){
             $(es).each(function(i,val){
                 if(val.length >0){
                     $(template).html(val.join("\n")).appendTo($('body td#es-'+i, print.document)).focus(function(){this.select()})
+                }else{
+                    $(template).html("").appendTo($('body td#es-'+i, print.document))
                 }
             })
             $('<br>').appendTo($('body', print.document))
             $(sp).each(function(i,val){
                 if(val.length >0){
                     $(template).html(val.join("\n")).appendTo($('body td#sp-'+i, print.document)).focus(function(){this.select()})
+                }else{
+                    $(template).html("").appendTo($('body td#sp-'+i, print.document))
                 }
             })
             $('<br>').appendTo($('body', print.document))
             $(fs).each(function(i,val){
                 if(val.length >0){
                     $(template).html(val.join("\n")).appendTo($('body td#fs-'+i, print.document)).focus(function(){this.select()})
+                }else{
+                    $(template).html("").appendTo($('body td#fs-'+i, print.document))
                 }
             })
         })

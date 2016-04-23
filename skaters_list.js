@@ -140,21 +140,27 @@ var isSpecialTest = !! $('#ctl00_ContentPlaceHolder1_lblTest').text().match(/特
 //手控え作成
 if(isSingleTest && !isSpecialTest){
     $.ajax({
-        url: 'https://uunf.o.mize.jp/jsf-btad/template/0_.html',
+        url: 'https://raw.githubusercontent.com/ojunn/jsf-btad/master/template/es.html',
         success: function(data){
             $('#button_for_marking_sheets').click(function(){
                 var print = window.open('', "popupWindow", "width=1160,height=830,scrollbars=no");
                 print.document.write(data)
-                console.log(year)
                 $('.basic_information .host', print.document).text(host)
                 $('.basic_information .date .year', print.document).text(year)
                 $('.basic_information .date .month', print.document).text(month)
                 $('.basic_information .date .day', print.document).text(day)
-                $(es[0]).each(function(i,val){
-                    var raw = $("table.marking_sheet tbody tr:nth-child("+(i+1)+")", print.document);
-                    $("th", raw)[0].innerHTML = i+1
-                    $("td", raw)[0].innerHTML = val
-                })
+                
+                for(var i=0;i<9;i++){
+                    if(es[i].length <1){
+                        $("section.grade-"+i).hide();
+                    }else{
+                        $(es[i]).each(function(j,val){
+                            var raw = $("section.grade-"+i+" table.marking_sheet tbody tr:nth-child("+(j+1)+")", print.document);
+                            $("th", raw)[0].innerHTML = j+1
+                            $("td", raw)[0].innerHTML = val
+                        })
+                    }
+                }
                 return false;
             })
         }

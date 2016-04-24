@@ -39,9 +39,10 @@ $('table#ctl00_ContentPlaceHolder1_GridView').css('width','')
 var previousRank = ''
 var numberInRank = 1
 var bikouQueue = [];
+//        0  1  2  3  4  5  6  7  8
 var es = [[],[],[],[],[],[],[],[],[]];//elements or steps
-var sp       = [[],[],[],[],[],[],[],[],[]];//6SP 7SP 8SP
-var fs       = [[],[],[],[],[],[],[],[],[]];
+var sp = [[],[],[],[],[],[],[],[],[]];//6SP 7SP 8SP
+var fs = [[],[],[],[],[],[],[],[],[]];//Free Skating
 
 $('table#ctl00_ContentPlaceHolder1_GridView tr').each(function(i,e){
     var td = $(e).children('td,th')
@@ -150,61 +151,23 @@ if(isSingleTest && !isSpecialTest){
 if(isSingleTest){
     if(isSpecialTest){
         $('#button_for_list').click(function(){
-            var print = window.open('', "popupWindow", "width=832,height=650,scrollbars=no");
+            var print = window.open('', "popupWindowForList", "width=832,height=650,scrollbars=no");
             print.document.write('<html><body><table><tr><td>&nbsp;</td><th>7級</th><th>8級</th></tr><tr><th>要素</th><td id="es-7"></td><td id="es-8"></td></tr><tr><th>SP</th><td id="sp-7"></td><td id="sp-8"></td></tr><tr><th>FS</th><td id="fs-7"></td><td id="fs-8"></td></tr></body></html>')
-            var template = '<textarea style="width:8em; height: 15em; display:inline-block;"></textarea>';
-            $(es).each(function(i,val){
-                if(i>6 && val.length >0){
-                    $(template).html(val.join("\n")).appendTo($('body td#es-'+i, print.document)).focus(function(){this.select()})
-                }else{
-                    $(template).html("").appendTo($('body td#es-'+i, print.document))
-                }
-            })
+            showList(es, 'es', print.document)
             $('<br>').appendTo($('body', print.document))
-            $(sp).each(function(i,val){
-                if(i>6 && val.length >0){
-                    $(template).html(val.join("\n")).appendTo($('body td#sp-'+i, print.document)).focus(function(){this.select()})
-                }else{
-                    $(template).html("").appendTo($('body td#sp-'+i, print.document))
-                }
-            })
+            showList(sp, 'sp', print.document)
             $('<br>').appendTo($('body', print.document))
-            $(fs).each(function(i,val){
-                if(i>6 && val.length >0){
-                    $(template).html(val.join("\n")).appendTo($('body td#fs-'+i, print.document)).focus(function(){this.select()})
-                }else{
-                    $(template).html("").appendTo($('body td#fs-'+i, print.document))
-                }
-            })
+            showList(fs, 'fs', print.document)
         })
     }else{
         $('#button_for_list').click(function(){
-            var print = window.open('', "popupWindow", "width=832,height=650,scrollbars=no");
+            var print = window.open('', "popupWindowForList", "width=832,height=650,scrollbars=no");
             print.document.write('<html><body><table><tr><td>&nbsp;</td><th>初級</th><th>1級</th><th>2級</th><th>3級</th><th>4級</th><th>5級</th><th>6級</th></tr><tr><th>要素<br>ST</th><td id="es-0"></td><td id="es-1"></td><td id="es-2"></td><td id="es-3"></td><td id="es-4"></td><td id="es-5"></td><td id="es-6"></td></tr><tr><th>SP</th><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td id="sp-6"></td></tr><tr><th>FS</th><td>&nbsp;</td><td>&nbsp;</td><td id="fs-2"></td><td id="fs-3"></td><td id="fs-4"></td><td id="fs-5"></td><td id="fs-6"></td></tr></body></html>')
-            var template = '<textarea style="width:8em; height: 15em; display:inline-block;"></textarea>';
-            $(es).each(function(i,val){
-                if(val.length >0){
-                    $(template).html(val.join("\n")).appendTo($('body td#es-'+i, print.document)).focus(function(){this.select()})
-                }else{
-                    $(template).html("").appendTo($('body td#es-'+i, print.document))
-                }
-            })
+            showList(es, 'es', print.document)
             $('<br>').appendTo($('body', print.document))
-            $(sp).each(function(i,val){
-                if(val.length >0){
-                    $(template).html(val.join("\n")).appendTo($('body td#sp-'+i, print.document)).focus(function(){this.select()})
-                }else{
-                    $(template).html("").appendTo($('body td#sp-'+i, print.document))
-                }
-            })
+            showList(sp, 'sp', print.document)
             $('<br>').appendTo($('body', print.document))
-            $(fs).each(function(i,val){
-                if(val.length >0){
-                    $(template).html(val.join("\n")).appendTo($('body td#fs-'+i, print.document)).focus(function(){this.select()})
-                }else{
-                    $(template).html("").appendTo($('body td#fs-'+i, print.document))
-                }
-            })
+            showList(fs, 'fs', print.document)
         })
     }
 }else{
@@ -219,11 +182,12 @@ if(isSingleTest){
  * @returns null 
  */
 function showMarkingSheet(templateUrl, skaters, type){
+    var step = ( type == 'es' ) ? 1 : 2 ;
     $.ajax({
         url: templateUrl,
         success: function(data){
             $('#button_for_marking_sheets').click(function(){
-                var print = window.open('', "popupWindow", "width=1160,height=830,scrollbars=no");
+                var print = window.open('', "popupWindow-"+type, "width=1160,height=830,scrollbars=no");
                 print.document.write(data)
                 $('.basic_information .host', print.document).text(host)
                 $('.basic_information .date .year', print.document).text(year)
@@ -236,7 +200,7 @@ function showMarkingSheet(templateUrl, skaters, type){
                         $("section."+className, print.document).hide();
                     }else{
                         $(skaters[i]).each(function(j,val){
-                            var raw = $("section."+className+" table.marking_sheet tbody tr:nth-child("+(j+1)+")", print.document);
+                            var raw = $("section."+className+" table.marking_sheet tbody tr:nth-child("+(j*step+1)+")", print.document);
                             $("th", raw)[0].innerHTML = j+1
                             $("td", raw)[0].innerHTML = val
                         })
@@ -244,6 +208,24 @@ function showMarkingSheet(templateUrl, skaters, type){
                 }
                 return false;
             })
+        }
+    })
+}
+
+/**
+ * 
+ * @param String[] skaters
+ * @param String type : es | sp | fs
+ * @param jQueryObject baseDocument
+ * @returns null 
+ */
+function showList(skaters, type, baseDocument){
+    var template = '<textarea style="width:8em; height: 15em; display:inline-block;"></textarea>';
+    $(skaters).each(function(i,val){
+        if(val.length >0){
+            $(template).html(val.join("\n")).appendTo($('body td#'+type+'-'+i, baseDocument)).focus(function(){this.select()})
+        }else{
+            $(template).html("").appendTo($('body td#'+type+'-'+i, baseDocument))
         }
     })
 }

@@ -139,33 +139,9 @@ var isSpecialTest = !! $('#ctl00_ContentPlaceHolder1_lblTest').text().match(/特
 
 //手控え作成
 if(isSingleTest && !isSpecialTest){
-    $.ajax({
-        url: 'https://raw.githubusercontent.com/ojunn/jsf-btad/master/template/es.html',
-        success: function(data){
-            $('#button_for_marking_sheets').click(function(){
-                var print = window.open('', "popupWindow", "width=1160,height=830,scrollbars=no");
-                print.document.write(data)
-                $('.basic_information .host', print.document).text(host)
-                $('.basic_information .date .year', print.document).text(year)
-                $('.basic_information .date .month', print.document).text(month)
-                $('.basic_information .date .day', print.document).text(day)
-                
-                for(var i=0;i<9;i++){
-                	var className = "grade-"+i+( i > 1 ? "es" : "" );
-                    if(es[i].length <1){
-                        $("section."+className, print.document).hide();
-                    }else{
-                        $(es[i]).each(function(j,val){
-                            var raw = $("section."+className+" table.marking_sheet tbody tr:nth-child("+(j+1)+")", print.document);
-                            $("th", raw)[0].innerHTML = j+1
-                            $("td", raw)[0].innerHTML = val
-                        })
-                    }
-                }
-                return false;
-            })
-        }
-    })
+    showMarkingSheet('https://raw.githubusercontent.com/ojunn/jsf-btad/master/template/es.html', es, "es")
+    showMarkingSheet('https://raw.githubusercontent.com/ojunn/jsf-btad/master/template/sp.html', sp, "sp")
+    showMarkingSheet('https://raw.githubusercontent.com/ojunn/jsf-btad/master/template/fs.html', fs, "fs")
 }else{
     $('#button_for_marking_sheets').prop('disabled', true)
 }
@@ -235,5 +211,41 @@ if(isSingleTest){
     $('#button_for_list').prop('disabled', true)
 }
 
+/**
+ * 
+ * @param String templateUrl
+ * @param String[] skaters
+ * @param String type : es | sp | fs
+ * @returns null 
+ */
+function showMarkingSheet(templateUrl, skaters, type){
+    $.ajax({
+        url: templateUrl,
+        success: function(data){
+            $('#button_for_marking_sheets').click(function(){
+                var print = window.open('', "popupWindow", "width=1160,height=830,scrollbars=no");
+                print.document.write(data)
+                $('.basic_information .host', print.document).text(host)
+                $('.basic_information .date .year', print.document).text(year)
+                $('.basic_information .date .month', print.document).text(month)
+                $('.basic_information .date .day', print.document).text(day)
+                
+                for(var i=0;i<9;i++){
+                	var className = "grade-"+i+( i > 1 ? type : "" );
+                    if(skaters[i].length <1){
+                        $("section."+className, print.document).hide();
+                    }else{
+                        $(skaters[i]).each(function(j,val){
+                            var raw = $("section."+className+" table.marking_sheet tbody tr:nth-child("+(j+1)+")", print.document);
+                            $("th", raw)[0].innerHTML = j+1
+                            $("td", raw)[0].innerHTML = val
+                        })
+                    }
+                }
+                return false;
+            })
+        }
+    })
+}
 
 //$('<iframe id="sheet" style="" src="https://uunf.o.mize.jp/jsf-btad/template/1.html"></iframe>').appendTo($('body')).ready(function(){console.log('hi')})

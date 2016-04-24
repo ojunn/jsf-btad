@@ -11,7 +11,7 @@
 // @namespace    http://ojunn.github.io/jsf-btad/
 // @updateURL    https://raw.githubusercontent.com/ojunn/jsf-btad/master/skaters_list.js
 // @downloadURL  https://raw.githubusercontent.com/ojunn/jsf-btad/master/skaters_list.js
-// @version      1.1
+// @version      2.0
 // @match        https://www.skatingjapan.jp/btad/admin_test_entry_list.aspx
 // @require      https://code.jquery.com/jquery-1.12.0.min.js
 // @grant        GM_addStyle

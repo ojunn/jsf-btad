@@ -139,9 +139,9 @@ var isSpecialTest = !! $('#ctl00_ContentPlaceHolder1_lblTest').text().match(/特
 
 //手控え作成
 if(isSingleTest && !isSpecialTest){
-    showMarkingSheet('https://raw.githubusercontent.com/ojunn/jsf-btad/master/template/es.html', es, "es")
-    showMarkingSheet('https://raw.githubusercontent.com/ojunn/jsf-btad/master/template/sp.html', sp, "sp")
-    showMarkingSheet('https://raw.githubusercontent.com/ojunn/jsf-btad/master/template/fs.html', fs, "fs")
+    showMarkingSheet('https://ojunn.github.io/jsf-btad/template/es.html', es, "es")
+    showMarkingSheet('https://ojunn.github.io/jsf-btad/template/sp.html', sp, "sp")
+    showMarkingSheet('https://ojunn.github.io/jsf-btad/template/fs.html', fs, "fs")
 }else{
     $('#button_for_marking_sheets').prop('disabled', true)
 }
